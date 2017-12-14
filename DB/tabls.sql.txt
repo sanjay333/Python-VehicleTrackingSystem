@@ -1,0 +1,23 @@
+create table owner_detail
+(
+PlateNo varchar(20) primary key,
+Name varchar(15),
+AddressId varchar(100)
+)
+
+
+create table Address
+(
+AddressId varchar(100) primary key,
+country varchar(15),
+state varchar(15),
+city varchar(15),
+contactNo varchar(14),
+PlateNo varchar(20) Not Null,
+CONSTRAINT fk_Plate_No
+    FOREIGN KEY (PlateNo)
+    REFERENCES owner_detail(PlateNo)
+    ON DELETE CASCADE
+    ON UPDATE   CASCADE 
+
+	);
